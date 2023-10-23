@@ -1,0 +1,192 @@
+@mixin projectStyle ($project-font-size, $project-weight, $project-line-height, $project-letter-spacing) {
+    font-size: $project-font-size;
+    font-weight: $project-weight;
+    line-height: $project-line-height;
+    letter-spacing: $project-letter-spacing;
+}
+
+.projects {
+    padding-bottom: 160px;
+    &__container {
+        display: flex;
+        max-width: 1152px;
+        color: #FFF;
+        text-transform: uppercase;
+    }
+    &__left {
+        position: relative;
+        margin-right: 30px;
+        padding: 273px 136px 273px 137px;
+        width: 100%;
+        max-width: 541px;
+        text-align: center;
+        border-radius: 15px;
+        background-image: url("../images/designo-project-web.jpg");
+        background-repeat: no-repeat;
+    }
+    &__left::before {
+        display: block;
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 15px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+    &__left:hover::before {
+        background-color: rgba(231, 129, 107, 0.60);
+    }
+    &__left-title {
+        margin-bottom: 24px;
+        @include projectStyle(40px, 500, 48px, 2px)
+    }
+    &__left-subtitle {
+        @include projectStyle(15px, 500, normal, 5px)
+    }
+    &__item {
+        position: relative;
+        padding: 107px 143px 107px 144px;
+        width: 100%;
+        max-width: 541px;
+        text-align: center;
+        border-radius: 15px;
+        background-image: url("../images/designo-project-app.png");
+        background-repeat: no-repeat;
+    }
+    &__item:last-child {
+        margin-top: 24px;
+        padding: 107px 88px 107px 89px;
+        background-image: url("../images/designo-project-graphic.png");
+    }
+    &__item::before {
+        display: block;
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 15px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+    &__item:hover::before {
+        background-color: rgba(231, 129, 107, 0.60);
+    }
+    &__item-title {
+        margin-bottom: 24px;
+        @include projectStyle(40px, 500, 48px, 2px)
+    }
+    &__item-subtitle {
+        @include projectStyle(15px, 500, normal, 5px)
+    }
+}
+
+@media only screen and (max-width: 1150px) {
+    .projects {
+        padding-bottom: 120px;
+        &__container {
+            flex-direction: column;
+        }
+        &__left {
+            margin-right: 0;
+            margin-bottom: 24px;
+            padding: 53px 0;
+            max-width: 100%;
+            background-image: url("../images/designo-project-web-tablet.jpg");
+            background-size: cover;
+        }
+        &__list {
+            max-width: 100%;
+        }
+        &__item {
+            max-width: 100%;
+            padding: 53px 0;
+            background-image: url("../images/designo-project-app-tablet.jpg");
+            background-size: cover;
+        }
+        &__item:last-child {
+            padding: 53px 0;
+            margin-top: 25px;
+            background-image: url("../../images/designo-project-graphic-tablet.jpg");
+        }
+    }
+}
+
+@media only screen and (max-width: 986px) {
+    .projects__container {
+        padding: 0 40px 0 39px;
+    }
+}
+
+@media only screen and (max-width: 668px) {
+    .projects {
+        &__container {
+            padding: 0 24px;
+        }
+        &__left {
+            padding: 90px 0 89px;
+            background-image: url("../images/designo-project-web-mobile.jpg");
+        }
+        &__left-title {
+            margin-bottom: 12px;
+            @include projectStyle(28px, 500, 36px, 1.4px)
+        }
+        &__item {
+            padding: 90px 0 89px;
+            background-image: url("../images/designo-project-app-mobile.jpg");
+        }
+        &__item:last-child {
+            padding: 90px 0 89px;
+            background-image: url("../images/designo-project-graphic-mobile.jpg");
+        }
+        &__item-title {
+            margin-bottom: 12px;
+            @include projectStyle(28px, 500, 36px, 1.4px)
+        }
+    }
+}
+
+@media
+only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (min--moz-device-pixel-ratio: 2),
+only screen and (-o-min-device-pixel-ratio: 2/1),
+only screen and (min-device-pixel-ratio: 2),
+only screen and (min-resolution: 192dpi),
+only screen and (min-resolution: 2dppx) {
+    /* Load high-resolution image */
+    .projects__left {
+        background-image: url("../images/designo-project-web@2x.jpg");
+    }
+    .projects_item {
+        background-image: url("../images/designo-project-app@2x.png");
+    }
+    .projects_item:last-child {
+        background-image: url("../images/designo-project-graphic@2x.png");
+    }
+    @media only screen and (max-width: 1150px) {
+        .projects__left {
+            background-image: url("../images/designo-project-web-tablet@2x.jpg");
+        }
+        .projects_item {
+            background-image: url("../images/designo-project-app-tablet@2x.jpg");
+        }
+        .projects_item:last-child {
+            background-image: url("../images/designo-project-graphic-tablet@2x.jpg");
+        }
+    }
+    @media only screen and (max-width: 668px) {
+        .projects__left {
+            background-image: url('../images/designo-project-web-mobile@2x.jpg');
+        }
+        .projects_item {
+            background-image: url("../images/designo-project-app-mobile@2x.jpg");
+        }
+        .projects_item:last-child {
+            background-image: url("../images/designo-project-graphic-mobile@2x.jpg");
+        }
+    }
+}

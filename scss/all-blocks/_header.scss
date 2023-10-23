@@ -1,0 +1,74 @@
+@mixin headerStyle ($header-color, $header-font-size, $header-weight, $header-line-heaight, $header-letter-spacing) {
+    color: $header-color;
+    font-size: $header-font-size;
+    font-weight: $header-weight;
+    line-height: $header-line-heaight;
+    letter-spacing: $header-letter-spacing;
+}
+.header {
+    padding: 64px 0;
+    &__container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    &__logo {
+        display: flex;
+        align-items: center;
+    }
+    &__logo-img {
+        width: 24px;
+        height: 24px;
+        flex-shrink: 0;
+    }
+    &__logo-link {
+        margin-left: 16px;
+        text-transform: uppercase;
+        font-family: 'Spartan';
+        @include headerStyle(#333136, 24px, 700, normal, 5px)
+    }
+    &__list {
+        display: flex;
+        align-items: center;
+    }
+    &__item:not(:last-child) {
+        margin-right: 42px;
+    }
+    &__link {
+        text-transform: uppercase;
+        @include headerStyle(#333136, 14px, 400, 14px, 2px)
+    }
+    &__link:hover {
+        cursor: pointer;
+        text-decoration-line: underline;
+    }
+    &__hamburger {
+        display: none;
+        width: 24px;
+        height: 20px;
+    }
+}
+
+@media only screen and (max-width: 986px) {
+    .header {
+        padding: 64px 0;
+        &__container {
+            padding: 0 40px 0 39px;
+        }
+    }
+}
+
+@media only screen and (max-width: 668px) {
+    .header {
+        padding: 35px 0 34px;
+        &__container {
+            padding: 0 24px;
+        }
+        &__nav {
+            display: none;
+        }
+        &__hamburger {
+            display: block;
+        }
+    }
+}

@@ -1,0 +1,129 @@
+@mixin infoStyle ($info-font-size, $info-weight, $info-line-height) {
+    font-size: $info-font-size;
+    font-weight: $info-weight;
+    line-height: $info-line-height;
+}
+.information {
+    padding-right: 20px;
+    padding-left: 20px;
+    &__container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 72px 96px 72px 95px;
+        max-width: 1111px;
+        border-radius: 15px;
+        color: #FFF;
+        background-image: url("../images/designo-information.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    &__left {
+        width: 100%;
+        max-width: 459px;
+    }
+    &__title {
+        width: 100%;
+        max-width: 268px;
+        min-height: 96px;
+        @include infoStyle(40px, 500, 40px)
+    }
+    &__desc {
+        width: 100%;
+        max-width: 457px;
+        @include infoStyle(16px, 400, 26px)
+    }
+    &__btn {
+        padding: 17px 19px 17px 18px;
+        border: none;
+        border-radius: 8px;
+        background-color: #FFAD9B;
+        color: #FFF;
+        cursor: pointer;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        @include infoStyle(15px, 500, normal)
+    }
+}
+
+@media only screen and (max-width: 986px) {
+    .information {
+        padding: 0 40px 0 39px;
+    }
+}
+@media only screen and (max-width: 882px) {
+    .information {
+        &__container {
+            flex-direction: column;
+            padding: 57px 59px 57px 58px;
+            background-image: url("../images/designo-information-tablet.png");
+        }
+        &__left {
+            margin-bottom: 32px;
+            max-width: 573px;
+            text-align: center;
+        }
+        &__title {
+            margin: 0 auto;
+            max-width: 335px;
+        }
+        &__desc {
+            margin: 0 auto;
+        }
+        &__btn {
+            background-color: #FFF;
+            color: #333136;
+        }
+    }
+}
+
+@media only screen and (max-width: 668px) {
+    .information {
+        padding: 0 24px;
+    }
+}
+
+@media only screen and (max-width: 543px) {
+    .information {
+        z-index: 2;
+        &__container {
+            padding: 64px 24px;
+            background-image: url("../images/designo-information-mobile.png");
+        }
+        &__left {
+            max-width: 279px;
+        }
+        &__title {
+            margin-bottom: 6px;
+            min-height: 82px;
+            @include infoStyle(32px, 500, 36px)
+        }
+        &__desc {
+            max-width: 279px;
+            @include infoStyle(15px, 400, 25px)
+        }
+    }
+}
+
+@media
+only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (min--moz-device-pixel-ratio: 2),
+only screen and (-o-min-device-pixel-ratio: 2/1),
+only screen and (min-device-pixel-ratio: 2),
+only screen and (min-resolution: 192dpi),
+only screen and (min-resolution: 2dppx) {
+    /* Load high-resolution image */
+    .information__container {
+        background-image: url("../images/designo-information@2x.png");
+    }
+    @media only csreen and (max-width: 882px) {
+        .information__container {
+            background-image: url("../images/designo-information-tablet@2x.png");
+        }
+    }
+    @media only screen and (max-width: 543px) {
+        .information__container {
+            background-image: url("../images/designo-information-mobile@2x.png");
+        }
+    }
+}

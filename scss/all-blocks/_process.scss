@@ -1,0 +1,140 @@
+@mixin procesStyle($proces-font-size, $proces-weight, $proces-line-height) {
+    font-size: $proces-font-size;
+    font-weight: $proces-weight;
+    line-height: $proces-line-height;
+}
+.process {
+    padding-bottom: 160px;
+    &__container {
+        max-width: 1150px;
+    }
+    &__list {
+        display: flex;
+        align-items: center;
+    }
+    &__item {
+        position: relative;
+        padding-top: 250px;
+        width: 100%;
+        max-width: 350px;
+        text-align: center;
+        color: #333136;
+    }
+    &__item:not(:last-child) {
+        margin-right: 30px;
+    }
+    &__item::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 48px;
+        left: 50%;
+        transform: translate(-50%);
+        width: 202px;
+        height: 202px;
+        background-image: url("../images/designo-process-passionate.png");
+        background-size: 202px 202px;
+        background-repeat: no-repeat;
+    }
+    &__item:nth-child(2)::before {
+        background-image: url("../images/designo-process-resourceful.png");
+    }
+    &__item:nth-child(3)::before {
+        background-image: url("../images/designo-process-friendly.png");
+    }
+    &__item-title {
+        margin-bottom: 32px;
+        letter-spacing: 5px;
+        text-transform: uppercase;
+        @include procesStyle(20px, 500, 26px)
+    }
+    &__item-desc {
+        @include procesStyle(16px, 400, 26px)
+    }
+}
+
+@media only screen and (max-width: 1057px) {
+    .process {
+        padding-bottom: 67px;
+        &__list {
+            max-width: 100%;
+            flex-direction: column;
+        }
+        &__item {
+            max-width: 100%;
+            padding: 41px 0;
+            padding-left: 250px;
+            text-align: left;
+        }
+        &__item:not(:last-child) {
+            margin-right: 0;
+            margin-bottom: 32px;
+        }
+        &__item::before {
+            left: 0;
+            right: 48px;
+            bottom: 0;
+            transform: translate(0);
+        }
+        &__item-title {
+            margin-bottom: 16px;
+        }
+    }
+}
+
+@media only screen and (max-width: 986px) {
+    .process__container {
+        padding: 0 40px 0 39px;
+    }
+}
+
+@media only screen and (max-width: 668px) {
+    .process__container {
+        padding: 0 24px;
+    }
+}
+
+@media only screen and (max-width: 617px) {
+    .process {
+        padding-bottom: 121px;
+        &__item {
+            text-align: center;
+            padding: 0;
+            padding-top: 250px;
+        }
+        &__item:not(:last-child) {
+            margin-bottom: 80px;
+        }
+        &__item::before {
+            left: 50%;
+            right: 0;
+            bottom: 48px;
+            transform: translate(-50%);
+        }
+        &__item-title {
+            margin-bottom: 32px;
+        }
+    }
+}
+
+@media
+only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (min--moz-device-pixel-ratio: 2),
+only screen and (-o-min-device-pixel-ratio: 2/1),
+only screen and (min-device-pixel-ratio: 2),
+only screen and (min-resolution: 192dpi),
+only screen and (min-resolution: 2dppx) {
+    /* Load high-resolution image */
+    .process__container {
+        background-image: url("../images/designo-process-shadow@2x.png");
+    }
+    .process__item::before {
+        background-image: url("../images/designo-process-passionate@2x.png");
+    }
+    .process__item:nth-child(2)::before {
+        background-image: url("../images/designo-process-resourceful@2x.png");
+    }
+    .process__item:nth-child(3)::before {
+        background-image: url("../images/designo-process-friendly@2x.png");
+    }
+}

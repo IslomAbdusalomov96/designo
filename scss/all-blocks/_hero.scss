@@ -1,0 +1,159 @@
+@mixin heroStyle ($hero-font-size, $hero-weight, $hero-line-height) {
+    font-size: $hero-font-size;
+    font-weight: $hero-weight;
+    line-height: $hero-line-height;
+}
+.hero {
+    padding: 0 20px;
+    padding-bottom: 160px;
+    &__container {
+        position: relative;
+        padding: 145px 95px;
+        max-width: 1111px;
+        border-radius: 15px;
+        background-color: #E7816B;
+        color: #FFF;
+        background-image: url("../images/designo-hero-oval.png");
+        background-repeat: no-repeat;
+        background-position: right center;
+        background-size: contain;
+    }
+    &__left {
+        width: 100%;
+        max-width: 540px;
+    }
+    &__title {
+        margin-bottom: 11px;
+        min-height: 165px;
+        @include heroStyle(48px, 500, 48px)
+    }
+    &__desc {
+        width: 100%;
+        max-width: 445px;
+        margin-bottom: 40px;
+        @include heroStyle(16px, 400, 26px)
+    }
+    &__btn {
+        padding: 18px 25px 16px 24px;
+        border: none;
+        border-radius: 8px;
+        background-color: #FFAD9B;
+        color: #FFF;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        cursor: pointer;
+        @include heroStyle(15px, 500, normal)
+    }
+    &__img {
+        position: absolute;
+        right: 96px;
+        bottom: 0;
+        width: 284px;
+        height: 501px;
+    }
+    &__img-tablet {
+        display: none;
+    }
+    &__img-mobile {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 986px) {
+    .hero {
+        padding: 0 40px 120px 39px;
+        &__container {
+            padding: 60px 58px 457px;
+            background-image: url('../images/design-hero-tablet-oval.png');
+            background-size: 518px 640px;
+        }
+        &__left {
+            margin: 0 auto;
+            max-width: 573px;
+            text-align: center;
+        }
+        &__title {
+            margin-bottom: 8px;
+        }
+        &__desc {
+            margin: 0 auto;
+            margin-bottom: 19px;
+        }
+        &__btn {
+            background-color: #FFF;
+            color: #333136;
+        }
+        &__img {
+            display: none;
+        }
+        &__img-tablet {
+            display: block;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translate(-50%);
+            width: 284px;
+            height: 398px;
+        }
+    }
+}
+
+@media only screen and (max-width: 668px) {
+    .hero {
+        padding: 0 0 120px;
+        &__container {
+            padding: 80px 24px 451px;
+            border-radius: 0;
+            background-image: url('../images/designo-hero-mobile-oval.png');
+            background-size: 375px 640px;
+        }
+        &__left {
+            max-width: 327px;
+        }
+        &__title {
+            min-height: 118px;
+            margin-bottom: 14px;
+            @include heroStyle(32px, 500, 36px)
+        }
+        &__desc {
+            max-width: 327px;
+            margin-bottom: 24px;
+            @include heroStyle(15px, 400, 25px)
+        }
+        &__img-tablet {
+            display: none;
+        }
+        &__img-mobile {
+            display: block;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translate(-50%);
+            width: 284px;
+            height: 371px;
+        }
+    }
+}
+
+@media
+only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (min--moz-device-pixel-ratio: 2),
+only screen and (-o-min-device-pixel-ratio: 2/1),
+only screen and (min-device-pixel-ratio: 2),
+only screen and (min-resolution: 192dpi),
+only screen and (min-resolution: 2dppx) {
+    /* Load high-resolution image */
+    .hero__container {
+        background-image: url("../images/designo-hero-oval@2x.png");
+    }
+    @media only screen and (max-width: 970px) {
+        .hero__container {
+            background-image: url('../images/design-hero-tablet-oval@2x.png');
+        }
+    }
+    @media only screen and (max-width: 668px) {
+        .hero__container {
+            background-image: url('../../images/designo-hero-mobile-oval@2x.png');
+        }
+    }
+}

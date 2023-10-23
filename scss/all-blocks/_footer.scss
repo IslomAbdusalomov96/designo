@@ -1,0 +1,168 @@
+@mixin footerStyle ($footer-color, $footer-font-size, $footer-weight, $footer-line-height) {
+    color: $footer-color;
+    font-size: $footer-font-size;
+    font-weight: $footer-weight;
+    line-height: $footer-line-height;
+}
+
+.footer {
+    margin-top: -71px;
+    padding: 144px 0 72px;
+    background-color: #1D1C1E;
+    z-index: -1;
+    &__top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 40px;
+    }
+    &__logo {
+        display: flex;
+        align-items: center;
+    }
+    &__logo-img {
+        width: 24px;
+        height: 24px;
+        flex-shrink: 0;
+    }
+    &__logo-link {
+        margin-left: 16px;
+        text-transform: uppercase;
+        letter-spacing: 5px;
+        font-family: 'Spartan';
+        @include footerStyle(#FFF, 24px, 700, normal)
+    }
+    &__top-line {
+        display: none;
+        margin: 0;
+        width: 100%;
+        height: 1px;
+        color: #FFF;
+        opacity: 0.1;
+    }
+    &__top-list {
+        display: flex;
+        align-items: center;
+    }
+    &__top-item:not(:last-child) {
+        margin-right: 42px;
+    }
+    &__top-link {
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        @include footerStyle(#FFF, 14px, 400, 14px)
+    }
+    &__center-line {
+        margin: 0;
+        margin-bottom: 31px;
+        width: 100%;
+        height: 1px;
+        color: #FFF;
+        opacity: 0.1;
+    }
+    &__bottom {
+        display: flex;
+        align-items: end;
+    }
+    &__bottom-address, &__bottom-connection {
+        width: 100%;
+        max-width: 350px;
+    }
+    &__bottom-connection {
+        margin-left: 30px;
+    }
+    &__bottom-address-item:first-child &__bottom-address-link, &__bottom-connection-link {
+        opacity: 0.5;
+        @include footerStyle(#FFF, 16px, 700, 26px)
+    }
+    &__bottom-address-link {
+        opacity: 0.5;
+        @include footerStyle(#FFF, 16px, 400, 26px)
+    }
+    &__bottom-social {
+        display: flex;
+        align-items: center;
+        margin-left: auto;
+    }
+    &__bottom-social-item:not(:last-child) {
+        margin-right: 15px;
+    }
+    &__bottom-social-link {
+        font-size: 24px;
+        color: #E7816B;
+        transition: 0.3s;
+    }
+    &__bottom-social-item:nth-child(2) &__bottom-social-link {
+        padding: 2px 5px;
+        font-size: 16px;
+        border-radius: 50%;
+        color: #1D1C1E;
+        background-color: #E7816B;
+    }
+}
+
+@media only screen and (max-width: 986px) {
+    .footer__container {
+        padding: 0 39px;
+    }
+}
+
+@media only screen and (max-width: 882px) {
+    .footer {
+        margin-top: -86px;
+        padding-bottom: 166px 0 80px;
+        &__bottom-address, &__bottom-connection {
+            max-width: 223px;
+        }
+        &__bottom-connection {
+            margin-left: 10px;
+        }
+    }
+}
+
+@media only screen and (max-width: 690px) {
+    .footer {
+        margin-top: -189px;
+        padding: 253px 0 64px;
+        &__container {
+            padding: 0 24px;
+        }
+        &__top {
+            flex-direction: column;
+            margin-bottom: 40px;
+        }
+        &__logo {
+            margin-bottom: 32px;
+        }
+        &__top-line {
+            display: block;
+            margin-bottom: 32px;
+        }
+        &__top-list {
+            flex-direction: column;
+        }
+        &__top-item:not(:last-child) {
+            margin-right: 0;
+            margin-bottom: 32px;
+        }
+        &__center-line {
+            display: none;
+        }
+        &__bottom {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        &__bottom-address, &__bottom-connection {
+            max-width: 327px;
+        }
+        &__bottom-connection {
+            margin-top: 40px;
+            margin-bottom: 40px;
+            margin-left: 0;
+        }
+        &__bottom-social {
+            margin-left: 0;
+        }
+    }
+}
